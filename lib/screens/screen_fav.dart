@@ -20,13 +20,14 @@ class _FavoriteMoviesScreenState extends State<FavoriteMoviesScreen> {
     final favorites = await AgendaDB().getAllFavoriteMovies();
     setState(() {
       favoriteMovies = favorites?.map((movie) {
-        final title = movie['title'];
-        final posterPath = movie['posterPath'];
-        return {
-          'title': title,
-          'posterPath': posterPath,
-        };
-      })?.toList() ?? [];
+            final title = movie['title'];
+            final posterPath = movie['posterPath'];
+            return {
+              'title': title,
+              'posterPath': posterPath,
+            };
+          })?.toList() ??
+          [];
 
       // Inicializa la lista filtrada con todas las películas favoritas
       filteredMovies = List.from(favoriteMovies);
@@ -140,3 +141,6 @@ class MovieDetailsScreen extends StatelessWidget {
     );
   }
 }
+
+
+//vamos por 21 de /20
